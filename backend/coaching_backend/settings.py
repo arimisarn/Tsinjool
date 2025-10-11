@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "accounts",
     "chat",
     "evaluation",
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -151,14 +152,21 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 # EMAIL CONFIGURATION — SendGrid
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "apikey"  # ne change pas ceci !
-EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_API_KEY")
-DEFAULT_FROM_EMAIL = "Tsinjool <noreply@tsinjool.com>"
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.sendgrid.net"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = "apikey"  # ne change pas ceci !
+# EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_API_KEY")
+# DEFAULT_FROM_EMAIL = "Tsinjool <noreply@tsinjool.com>"
 
+
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+ANYMAIL = {
+    "SENDGRID_API_KEY": config("SENDGRID_API_KEY"),
+}
+
+DEFAULT_FROM_EMAIL = "Tsinjool <arimisa.dev@gmail.com>"
 
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 OPENAI_API_KEY = config("OPENAI_API_KEY")
