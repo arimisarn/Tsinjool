@@ -10,6 +10,7 @@ deprecation==2.1.0
 distro==1.9.0
 dj-database-url==3.0.1
 Django==5.2.4
+django-anymail==13.1
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.7.0
 django-environ==0.12.0
