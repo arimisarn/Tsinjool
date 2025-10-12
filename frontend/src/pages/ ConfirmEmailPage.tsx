@@ -210,6 +210,7 @@ export default function ConfirmEmailPage() {
                 </h3>
                 <p className="text-base sm:text-lg font-light max-w-sm">
                   Entrez le code pour activer votre compte Tsinjool.
+                  Veuillez consulter votre SPAM si vous ne le voyez pas.
                 </p>
               </div>
 
